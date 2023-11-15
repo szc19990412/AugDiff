@@ -1,0 +1,5 @@
+### Thanks for the open source at https://github.com/CompVis/latent-diffusion. Please download the project from this link first. We have only made some limited changes to this project, so we are only providing the modified code. You can directly add the provided code into the downloaded project.
+
+### We provide four files: ddim.py, feature.py, unitopatho.yaml, unitopatho_uncondition.yaml.
+### You should replace the ldm/models/diffusion/ddim.py (download from Latent Diffusion) with our [ddim.py]. Then, you should add our [feature.py] to ldm/data, add our [unitopatho.yaml, unitopatho_uncondition.yaml] to configs/latent-diffusion.
+### In our paper, we found there was no big difference between conditional training and unconditional training for diffusion. So you can directly choose unconditional training. 

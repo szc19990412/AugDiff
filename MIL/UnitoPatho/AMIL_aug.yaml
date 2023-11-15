@@ -1,0 +1,51 @@
+General:
+    comment: 
+    seed: 2021
+    fp16: True
+    amp_level: O2
+    precision: 16 
+    multi_gpu_mode: dp
+    gpus: [0]
+    epochs: &epoch 200 
+    grad_acc: 2
+    frozen_bn: False
+    patience: 10
+    server: test #train #test
+    log_path: logs/
+
+Data:
+    dataset_name: unito_data
+    data_shuffle: False
+    data_dir: /data111/shaozc/Diffusion/unitopath-public/512/pt_files_wsi/images/ #input is original image
+    label_dir: dataset_csv/UnitoPatho/
+    fold: 0
+    nfold: 4
+    total_steps: 20 #T
+    u_scale: 5.0
+    scale: 0.4 #K=0.4T
+
+    train_dataloader:
+        batch_size: 1 
+        num_workers: 8
+
+    test_dataloader:
+        batch_size: 1
+        num_workers: 8
+
+Model:
+    name: AMIL
+    n_classes: 4
+    feats_size: 512
+
+
+Optimizer:
+    opt: lookahead_radam
+    lr: 0.0002
+    opt_eps: null 
+    opt_betas: null
+    momentum: null 
+    weight_decay: 0.00001
+
+Loss:
+    base_loss: CrossEntropyLoss
+
